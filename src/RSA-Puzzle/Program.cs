@@ -14,8 +14,9 @@ namespace RSA_Puzzle
             n = BigInteger.Parse("716986706621138193334849008809");
             c = BigInteger.Parse("609810477808753196933983953492");
 
-            Stopwatch sw = new Stopwatch();
 
+            Stopwatch sw = new Stopwatch();
+            //SW
             sw.Start();
             p = AlgorithmPollardsRho(n);
             q = n / p;
