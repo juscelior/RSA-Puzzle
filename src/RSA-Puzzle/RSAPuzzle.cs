@@ -10,17 +10,23 @@ namespace RSA_Puzzle
     {
         private RSAInfo info;
 
+
         public RSAPuzzle(string chavePublica, string corpoN, string mensagemCriptografada)
         {
             info = new RSAInfo();
             info.E = BigInteger.Parse(chavePublica);
             info.N = BigInteger.Parse(corpoN);
             info.C = BigInteger.Parse(mensagemCriptografada);
+
         }
 
         public RSAInfo Resolver()
         {
+            info.Profile.IniciarCronometro();
+            info.Profile.IniciarMonitoramentoFatorial();
             info.P = AplicarPollardsRho(info.N);
+            info.Profile.FinalizarMonitoramentoFatorial();
+
             info.Q = info.N / info.P;
 
             info.PhiN = (info.P - 1) * (info.Q - 1);
@@ -29,10 +35,10 @@ namespace RSA_Puzzle
             info.M = BigInteger.ModPow(info.C, info.D, info.N);
 
             info.Texto = converterParaASCII(info.M.ToString());
+            info.Profile.EncerrarCronometro();
 
             return info;
         }
-
 
         private BigInteger AplicarPollardsRho(BigInteger n)
         {
