@@ -40,6 +40,17 @@ namespace RSA_Puzzle
             return info;
         }
 
+        /// <summary>
+        /// Algoritmo Pollard's rho
+        /// Esse algoritmo foi desenvolvido por Pollard em 1975
+        /// A ideia do algoritmo consiste em gerar um numero pseudo aleatorio
+        /// x = (x * x + 1) % n;
+        /// 
+        /// Esse algoritmo gera uma sequencia pseudo aleatorio até cair em um ciclo, para evitar esse ciclo existe a variavel de controle cycle_size.
+        /// O tempo esperado até que a sequencia caia em um ciclo é proporcional a Raiz quadrada de n
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         private BigInteger AplicarPollardsRho(BigInteger n)
         {
             BigInteger x = new BigInteger(2);
