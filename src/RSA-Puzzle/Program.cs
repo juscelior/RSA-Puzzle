@@ -26,6 +26,7 @@ namespace RSA_Puzzle
         }
         private static void DesenharOCabecalho()
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("$$$$$$$\\   $$$$$$\\   $$$$$$\\        $$$$$$$\\                                $$\\");
             Console.WriteLine("$$  __$$\\ $$  __$$\\ $$  __$$\\       $$  __$$\\                               $$ |");
