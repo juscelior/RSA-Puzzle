@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "exports": {
+    "RSA-Puzzle.Portable/1.0.0": {
+      "type": "project",
+      "framework": ".NETStandard,Version=v1.2",
+      "compile": {
+        "bin/Debug/RSA-Puzzle.Portable.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/RSA-Puzzle.Portable.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/RSA-Puzzle.Portable.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

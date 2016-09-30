@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace RSA_Puzzle
+namespace RSA_Puzzle.Portable
 {
     /// <summary>
     /// Essa classe serve para realizar testes com o resultado obtido da fatoração
@@ -17,22 +18,22 @@ namespace RSA_Puzzle
             _info = info;
         }
 
-        public void Imprimir()
+        public string Imprimir()
         {
-            Console.WriteLine(Environment.NewLine);
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("/----------------------------------------------------------------/");
-            Console.WriteLine("\tRealizando testes para validar o resultado obtido");
-            Console.WriteLine("/----------------------------------------------------------------/");
-            Console.WriteLine("[Teste] n = pq: {0}", TestN());
-            Console.WriteLine("[Teste] M < n: {0}", TestMMinorN());
-            Console.WriteLine("[Teste] M^ed mod n = M: {0}", TestMModN());
-            Console.WriteLine("[Teste] ed mod phiN = 1: {0}", TestEDPhiN());
-            Console.WriteLine("[Teste] Comparando o texto em claro com o valor da descriptografia da mensagem criptografada: {0}", TestDescriptandoAMensagem());
-            Console.WriteLine("[Teste] Comparando o texto cifrado informado com o valor da criptografia da mensagem em claro: {0}", TestEncriptandoAMensagem());
+            StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine(Environment.NewLine);
+            sb.AppendLine("/----------------------------------------------------------------/");
+            sb.AppendLine("\tRealizando testes para validar o resultado obtido");
+            sb.AppendLine("/----------------------------------------------------------------/");
+            sb.AppendLine(string.Format("[Teste] n = pq: {0}", TestN()));
+            sb.AppendLine(string.Format("[Teste] M < n: {0}", TestMMinorN()));
+            sb.AppendLine(string.Format("[Teste] M^ed mod n = M: {0}", TestMModN()));
+            sb.AppendLine(string.Format("[Teste] ed mod phiN = 1: {0}", TestEDPhiN()));
+            sb.AppendLine(string.Format("[Teste] Comparando o texto em claro com o valor da descriptografia da mensagem criptografada: {0}", TestDescriptandoAMensagem()));
+            sb.AppendLine(string.Format("[Teste] Comparando o texto cifrado informado com o valor da criptografia da mensagem em claro: {0}", TestEncriptandoAMensagem()));
 
-            Console.ResetColor();
+            return sb.ToString();
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RSA_Puzzle.Portable;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
@@ -60,9 +61,9 @@ namespace RSA_Puzzle
         {
             LimparTela();
 
-            resultado.Imprimir();
+            Console.WriteLine(resultado.Imprimir());
 
-            new RSATest(resultado).Imprimir();
+            Console.WriteLine(new RSATest(resultado).Imprimir());
         }
     }
 }

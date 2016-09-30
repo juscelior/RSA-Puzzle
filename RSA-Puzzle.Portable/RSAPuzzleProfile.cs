@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace RSA_Puzzle
+namespace RSA_Puzzle.Portable
 {
     public class RSAPuzzleProfile
     {
@@ -34,7 +34,6 @@ namespace RSA_Puzzle
 
         public void IniciarMonitoramentoFatorial()
         {
-            Interlocked.MemoryBarrier();
             MemoriaInicial = GC.GetTotalMemory(true);
             swFatorial.Start();
         }
@@ -42,7 +41,6 @@ namespace RSA_Puzzle
         public void FinalizarMonitoramentoFatorial()
         {
             swFatorial.Stop();
-            Interlocked.MemoryBarrier();
             MemoriaFinal = GC.GetTotalMemory(true);
             TempoGastoFatorial = swFatorial.Elapsed;
         }

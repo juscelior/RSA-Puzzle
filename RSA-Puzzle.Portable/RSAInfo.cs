@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace RSA_Puzzle
+namespace RSA_Puzzle.Portable
 {
     public class RSAInfo
     {
@@ -155,40 +156,35 @@ namespace RSA_Puzzle
             profile = new RSAPuzzleProfile();
         }
 
-        public void Imprimir()
+        public string Imprimir()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("/----------------------------------------------------------------/");
-            Console.WriteLine("\tResultado da operacao");
-            Console.WriteLine("/----------------------------------------------------------------/");
+            StringBuilder sb = new StringBuilder();
 
-            Console.WriteLine("[Resultado] Primo p: {0}", this.P);
-            Console.WriteLine("[Resultado] Primo q: {0}", this.Q);
-            Console.WriteLine("[Resultado] N: {0}", this.N);
-            Console.WriteLine("[Resultado] phi(N): {0}", this.PhiN);
-            Console.WriteLine("[Resultado] Pub_k: {0}", this.E);
-            Console.WriteLine("[Resultado] Pri_k: {0}", this.D);
-            Console.WriteLine("[Resultado] Texto Cifrado: {0}", this.C);
-            Console.WriteLine("[Resultado] Mensagem: {0}", this.M);
+            sb.AppendLine("/----------------------------------------------------------------/");
+            sb.AppendLine("\tResultado da operacao");
+            sb.AppendLine("/----------------------------------------------------------------/");
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("[Resultado] Texto em claro: {0}", this.Texto);
+            sb.AppendLine(string.Format("[Resultado] Primo p: {0}", this.P));
+            sb.AppendLine(string.Format("[Resultado] Primo q: {0}", this.Q));
+            sb.AppendLine(string.Format("[Resultado] N: {0}", this.N));
+            sb.AppendLine(string.Format("[Resultado] phi(N): {0}", this.PhiN));
+            sb.AppendLine(string.Format("[Resultado] Pub_k: {0}", this.E));
+            sb.AppendLine(string.Format("[Resultado] Pri_k: {0}", this.D));
+            sb.AppendLine(string.Format("[Resultado] Texto Cifrado: {0}", this.C));
+            sb.AppendLine(string.Format("[Resultado] Mensagem: {0}", this.M));
 
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("/----------------------------------------------------------------/");
-            Console.WriteLine("\tMetricas durante a fatoracao");
-            Console.WriteLine("/----------------------------------------------------------------/");
+            sb.AppendLine(string.Format("[Resultado] Texto em claro: {0}", this.Texto));
 
-            Console.WriteLine("[INFO] Memoria consumida durante a fatorcao de N");
-            Console.WriteLine("Inicio: {0:N}Kb \tFinal: {1:N}Kb", this.Profile.MemoriaInicial / 1024, this.Profile.MemoriaFinal / 1024);
+            sb.AppendLine("/----------------------------------------------------------------/");
+            sb.AppendLine("\tMetricas durante a fatoracao");
+            sb.AppendLine("/----------------------------------------------------------------/");
+            sb.Append("[INFO] Tempo gasto durante a fatorcao de N: ");
+            sb.AppendLine(string.Format("{0:00}:{1:00}:{2:00}.{3:00}", this.Profile.TempoGastoFatorial.Hours, this.Profile.TempoGastoFatorial.Minutes, this.Profile.TempoGastoFatorial.Seconds, this.Profile.TempoGastoFatorial.Milliseconds / 10));
 
-            Console.Write("[INFO] Tempo gasto durante a fatorcao de N: ");
-            Console.WriteLine("{0:00}:{1:00}:{2:00}.{3:00}", this.Profile.TempoGastoFatorial.Hours, this.Profile.TempoGastoFatorial.Minutes, this.Profile.TempoGastoFatorial.Seconds, this.Profile.TempoGastoFatorial.Milliseconds / 10);
+            sb.Append("[INFO] Tempo gasto durante todo o processamento: ");
+            sb.AppendLine(string.Format("{0:00}:{1:00}:{2:00}.{3:00}", this.Profile.TempoGastoTotal.Hours, this.Profile.TempoGastoTotal.Minutes, this.Profile.TempoGastoTotal.Seconds, this.Profile.TempoGastoTotal.Milliseconds / 10));
 
-            Console.Write("[INFO] Tempo gasto durante todo o processamento: ");
-            Console.WriteLine("{0:00}:{1:00}:{2:00}.{3:00}", this.Profile.TempoGastoTotal.Hours, this.Profile.TempoGastoTotal.Minutes, this.Profile.TempoGastoTotal.Seconds, this.Profile.TempoGastoTotal.Milliseconds / 10);
-
-            Console.ResetColor();
+            return sb.ToString();
         }
     }
 }

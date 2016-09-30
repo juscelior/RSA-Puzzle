@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <EditText
+      android:id="@+id/edtChavePublica"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/enter_pubk"
+      android:inputType="text|textNoSuggestions" />
+  <EditText
+      android:id="@+id/edtCorpoN"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/enter_n"
+      android:inputType="text|textNoSuggestions" />
+  <EditText
+      android:id="@+id/edtMensagemCifrada"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/enter_mensagem_cifrada"
+      android:inputType="text|textNoSuggestions" />
+  <Button
+      android:id="@+id/btnProcessar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/Processar" />
+  <ScrollView
+      android:id="@+id/ScrollView01"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:fillViewport="true">
+    <TextView
+          android:id="@+id/textView01"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+  </ScrollView>
+</LinearLayout>

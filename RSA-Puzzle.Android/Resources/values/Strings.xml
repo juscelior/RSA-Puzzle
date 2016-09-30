@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Processar">Processar!</string>
+    <string name="ApplicationName">RSA-Puzzle.Android</string>
+  <string name="enter_mensagem_cifrada">Mensagem cifrada</string>
+  <string name="enter_n">Corpo N</string>
+  <string name="enter_pubk">Chave pública</string>
+
+</resources>
